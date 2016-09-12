@@ -3,5 +3,18 @@
   "version": "0.0.1",
   "description": "Processes webhooks from Unity Cloud builds and performs relevant actions",
   "main": "index.js",
-  "author": "Dubit"
+  "author": "Dubit",
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "koa": "^1.2.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "eslint": "^3.5.0"
+  }
 }
