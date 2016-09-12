@@ -6,15 +6,19 @@
   "author": "Dubit",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "dependencies": {
-    "koa": "^1.2.4"
+    "koa": "^1.2.4",
+    "koa-router": "^5.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-0": "^6.5.0",
     "eslint": "^3.5.0"
   }
 }
