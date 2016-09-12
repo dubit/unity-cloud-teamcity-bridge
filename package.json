@@ -1,0 +1,7 @@
+{
+  "name": "unity-cloud-build-processor",
+  "version": "0.0.1",
+  "description": "Processes webhooks from Unity Cloud builds and performs relevant actions",
+  "main": "index.js",
+  "author": "Dubit"
+}
