@@ -4,16 +4,22 @@ const teamcity_url = process.env.TEAMCITY_URL;
 const teamcity_user = process.env.TEAMCITY_USER;
 const teamcity_pass = process.env.TEAMCITY_PASS;
 
-export default class TeamCityAPI {  
+export default class TeamCityAPI {
 
-  static createBuild(build_id) {
+  static createBuild(buildId, buildNumber) {
     let payload = JSON.stringify({
       'buildType': {
-        'id': build_id
+        'id': buildId
+      },
+      'comment': {
+        'text': 'Triggered by Unity Cloud Build Processor'
+      },
+      'properties': {
+        'build.number': buildNumber
       }
     });
 
-    var options = {
+    let options = {
       auth: {
         'user': teamcity_user,
         'pass': teamcity_pass
@@ -28,6 +34,6 @@ export default class TeamCityAPI {
       body: payload
     };
 
-    return request(options);    
+    return request(options);
   }
 }
