@@ -34,17 +34,14 @@ module.exports = {
   module: {
     noParse: /\.min\.js/,
 
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      }
-    ]
+    loaders: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader'
+    }, {
+      test: /\.json$/,
+      loader: 'json-loader'
+    }]
   },
 
   plugins: [
