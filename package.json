@@ -1,8 +1,7 @@
 {
-  "name": "unity-cloud-build-processor",
+  "name": "unity-ci-teamcity-bridge",
   "version": "0.0.1",
-  "description": "Processes webhooks from Unity Cloud builds and performs relevant actions",
-  "main": "index.js",
+  "description": "Processes webhooks from Unity Cloud builds and triggers teamcity builds",
   "author": "Dubit",
   "scripts": {
     "start": "nodemon --watch dist dist/server.js",
