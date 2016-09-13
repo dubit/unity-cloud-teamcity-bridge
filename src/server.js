@@ -7,10 +7,11 @@ import projectConfig from './projectconfig';
 import teamcityapi from './api/teamcityapi';
 
 const serverPort = process.env.PORT || 8080;
+const configPath = process.env.PROJECT_CONFIG_PATH || './config/projects.json';
 
 const app = koa();
 const router = koaRouter();
-const projects = projectConfig.load('./config/projects.json');
+const projects = projectConfig.load(configPath);
 
 app.use(bodyParser());
 
