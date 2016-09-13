@@ -24,7 +24,7 @@ export default class TeamCityAPI {
         'user': teamcity_user,
         'pass': teamcity_pass
       },
-      url: teamcity_url,
+      url: `${teamcity_url}/httpAuth/app/rest/buildQueue`,
       method: 'POST',
       headers: {
         'Accept': 'application/json',
