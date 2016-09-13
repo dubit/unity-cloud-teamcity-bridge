@@ -4,12 +4,15 @@
   "description": "Processes webhooks from Unity Cloud builds and triggers teamcity builds",
   "author": "Dubit",
   "scripts": {
-    "start": "nodemon --watch dist dist/server.js",
+    "start": "node dist/server.js",
     "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "concurrently --kill-others 'npm build-and-watch' 'npm serve-and-watch'",
+    "build-and-watch": "webpack --watch",
+    "serve-and-watch": "nodemon --watch dist dist/server.js"
   },
   "dependencies": {
     "koa": "^1.2.4",
+    "koa-bodyparser": "^2.2.0",
     "koa-request": "^1.0.0",
     "koa-router": "^5.4.0"
   },
@@ -19,7 +22,9 @@
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-stage-0": "^6.5.0",
+    "concurrently": "^2.2.0",
     "eslint": "^3.5.0",
-    "nodemon": "^1.10.2"
+    "nodemon": "^1.10.2",
+    "webpack": "^1.13.2"
   }
 }
