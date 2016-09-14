@@ -6,7 +6,19 @@ const teamcity_pass = process.env.TEAMCITY_PASS;
 
 export default class TeamCityAPI {
 
-  static createBuild(buildId, buildNumber) {
+  static createBuild(buildId, buildNumber, properties = {}) {
+
+    properties['unityBuildNumber'] = buildNumber;
+
+    // build properties (key value pairs) into something teamcity will understand
+    let buildProperties = Object.keys(properties).map((key) => {
+      // Teamcity has a special use for the % sign in build params, which can be escaped with another %
+      let value = typeof properties[key] !== 'string' ? properties[key] : properties[key].replace(/%/g, '%%');
+
+      return { 'name' : key, 'value' : value }
+    });
+
+
     let payload = JSON.stringify({
       'buildType': {
         'id': buildId
@@ -15,7 +27,7 @@ export default class TeamCityAPI {
         'text': 'Triggered by Unity Cloud Build Processor'
       },
       'properties': {
-        'build.number': buildNumber
+        "property": buildProperties
       }
     });
 
