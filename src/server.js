@@ -49,7 +49,7 @@ router.post('/build', function*(next) {
       queuedBuilds++;
 
       let buildDetails = JSON.parse(response.body).buildType;
-      console.error(`Team City: Build ${buildDetails.projectName} , ${buildDetails.name} #${buildNumber} queued`);
+      console.log(`Team City: Build ${buildDetails.projectName} , ${buildDetails.name} #${buildNumber} queued`);
     }
   }
 
