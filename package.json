@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/server.js",
     "build": "webpack",
-    "watch": "concurrently --kill-others 'npm build-and-watch' 'npm serve-and-watch'",
+    "watch": "concurrently --kill-others 'npm run build-and-watch' 'npm run serve-and-watch'",
     "build-and-watch": "webpack --watch",
     "serve-and-watch": "nodemon --watch dist dist/server.js"
   },
