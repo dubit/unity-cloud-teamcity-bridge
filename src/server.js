@@ -5,6 +5,7 @@ import bodyParser from 'koa-bodyparser'
 
 import projectConfig from './projectconfig';
 import teamcityapi from './api/teamcityapi';
+import unitycloudapi from './api/unitycloudapi';
 
 const serverPort = process.env.PORT || 8080;
 const configPath = process.env.PROJECT_CONFIG_PATH || './config/projects.json';
@@ -31,9 +32,13 @@ router.post('/build', function*(next) {
   let queuedBuilds = 0;
   let failedBuilds = 0;
 
+  // attempt to find the artifact for this project
+  let buildData = yield unitycloudapi.processLink(this.request.body.links.api_self);
+  let buildProperties = { unityCloudArtifactUrl: JSON.parse(buildData.body).links.download_primary.href };
+
   while (targets.length > 0) {
     let target = targets.shift();
-    let response = yield teamcityapi.createBuild(target.teamcity_id, buildNumber);
+    let response = yield teamcityapi.createBuild(target.teamcity_id, buildNumber, buildProperties);
 
     // Todo move this into the teamcity-api to handle
     if (response.statusCode < 200 || response.statusCode >= 400) {
