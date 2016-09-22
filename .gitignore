@@ -1,3 +1,5 @@
+# Ignore any locally defined config
+config
 node_modules
 dist
 npm-debug*.log
