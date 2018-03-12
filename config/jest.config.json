@@ -1,0 +1,17 @@
+{
+  "automock": false,
+  "testEnvironment": "node",
+  "verbose": false,
+  "clearMocks": true,
+  "resetModules": true,
+  "rootDir": "../",
+  "testMatch": [
+    "<rootDir>/tests/**/*.js?(x)",
+    "<rootDir>/**/?(*.)(spec|test).js?(x)"
+  ],
+  "coverageDirectory": "<rootDir>/coverage",
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx}",
+    "!**/node_modules/**"
+  ]
+}

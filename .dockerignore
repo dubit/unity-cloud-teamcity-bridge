@@ -1,4 +1,4 @@
-config
 node_modules
+.git
+coverage
 dist
-npm-debug*.log
