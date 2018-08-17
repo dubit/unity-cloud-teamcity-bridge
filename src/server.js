@@ -28,6 +28,8 @@ router.post('/build', function*(next) {
   console.info(`Unity Cloud: Build Recieved`);
   console.info(`Project: ${projectName} target: ${target}`);
 
+  console.info(this.request.body);
+
   let targets = projects.find(uuid, target);
   let queuedBuilds = 0;
   let failedBuilds = 0;
